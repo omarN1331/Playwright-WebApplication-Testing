@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6184133e-bda0-4118-90bc-57c55883d85a" name="Changes" comment="-Git Commit" />
+    <list default="true" id="6184133e-bda0-4118-90bc-57c55883d85a" name="Changes" comment="Git Init">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_login_positive.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "omarN1331"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/omarN1331/Playwright-WebApplication-Testing.git",
+    "accountId": "1de337cf-9cb4-4916-bbdc-8adba223c475"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 1
 }]]></component>
@@ -40,11 +56,11 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python tests.pytest for test_example.test_has_title">
+  <component name="RunManager" selected="Python tests.pytest for test_login_positive.test_has_title">
     <configuration name="Playwright Tests" type="tests" factoryName="py.test">
       <module name="Test_login_page" />
       <option name="ENV_FILES" value="" />
@@ -59,11 +75,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_example&quot;" />
+      <option name="_new_target" value="&quot;test_login_positive&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_example.test_has_title" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_login_positive.test_has_title" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="Test_login_page" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,13 +93,13 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_example.test_has_title&quot;" />
+      <option name="_new_target" value="&quot;test_login_positive.test_has_title&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_example.test_has_title" />
+        <item itemvalue="Python tests.pytest for test_login_positive.test_has_title" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +118,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760862286281</updated>
-      <workItem from="1760862287713" duration="3028000" />
+      <workItem from="1760862287713" duration="9807000" />
     </task>
     <task id="LOCAL-00001" summary="-Git Commit">
       <option name="closed" value="true" />
@@ -112,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760867152793</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Git Init">
+      <option name="closed" value="true" />
+      <created>1760867402441</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760867402441</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,7 +144,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-Git Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Git Commit" />
+    <MESSAGE value="Git Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Git Init" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Test_login_page$pytest_for_test_example_test_has_title.coverage" NAME="pytest for test_example.test_has_title Coverage Results" MODIFIED="1760864330239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
