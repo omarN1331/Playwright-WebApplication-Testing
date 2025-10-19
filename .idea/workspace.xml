@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6184133e-bda0-4118-90bc-57c55883d85a" name="Changes" comment="Added all positive login testcases">
-      <change afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+    <list default="true" id="6184133e-bda0-4118-90bc-57c55883d85a" name="Changes" comment="+excel sheet reporting&#10;+finished login positive test_cases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_login_positive.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test_Cases.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Cases.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_login_positive.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_login_positive.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760862286281</updated>
-      <workItem from="1760862287713" duration="13443000" />
+      <workItem from="1760862287713" duration="15332000" />
     </task>
     <task id="LOCAL-00001" summary="-Git Commit">
       <option name="closed" value="true" />
@@ -145,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760876045931</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="+excel sheet reporting&#10;+finished login positive test_cases">
+      <option name="closed" value="true" />
+      <created>1760880435039</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760880435039</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +165,8 @@
     <MESSAGE value="-Git Commit" />
     <MESSAGE value="Git Init" />
     <MESSAGE value="Added all positive login testcases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added all positive login testcases" />
+    <MESSAGE value="+excel sheet reporting&#10;+finished login positive test_cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="+excel sheet reporting&#10;+finished login positive test_cases" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Test_login_page$pytest_for_test_example_test_has_title.coverage" NAME="pytest for test_example.test_has_title Coverage Results" MODIFIED="1760864330239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

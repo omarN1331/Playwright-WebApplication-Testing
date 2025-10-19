@@ -1,7 +1,6 @@
 import pytest
 from utils.excel_updater import update_excel_status
 
-
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     """
