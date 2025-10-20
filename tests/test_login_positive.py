@@ -1,3 +1,4 @@
+import re
 from playwright.sync_api import Page, expect
 import pytest
 from conftest import USERNAME, PASSWORD
@@ -10,8 +11,8 @@ def test_login_positive_01(page: Page):
     page.goto("http://52.19.50.152:40001/login")
     page.get_by_role("textbox", name="USERNAME").fill(USERNAME)
     page.get_by_role("textbox", name="PASSWORD").fill(PASSWORD)
-    page.get_by_role("button", name="LOGIN").click(button="left")
-    expect(page.get_by_role("complementary")).to_be_visible()
+    page.get_by_role("button", name="LOGIN").click()
+    expect(page).to_have_url(re.compile(r".*/superdashboard"))
 
 
 @pytest.mark.tc(id="TC-LOGIN-POS-002", sheet="Login - Positive")
@@ -21,15 +22,15 @@ def test_login_positive_02(page: Page):
     page.get_by_role("textbox", name="PASSWORD").fill(PASSWORD)
     page.get_by_role("textbox", name="USERNAME").fill(USERNAME)
     page.get_by_role("checkbox", name="REMEMBER ME").check()
-    page.get_by_role("button", name="LOGIN").click(button="left")
-    expect(page.get_by_role("complementary")).to_be_visible()
+    page.get_by_role("button", name="LOGIN").click()
+    expect(page).to_have_url(re.compile(r".*/superdashboard"))
 
 @pytest.mark.xfail(reason="Feature to be Added") # Feature not added yet
 @pytest.mark.tc(id="TC-LOGIN-POS-003", sheet="Login - Positive")
 def test_login_positive_03(page: Page):
     page.goto("http://52.19.50.152:40001/login")
     page.get_by_role("button", name="FORGOT PASSWORD?").click()
-    expect(page.get_by_role("complementary")).to_match_aria_snapshot("- img \"Logo\"\n- text: Connector")
+    expect(page).to_have_url(re.compile(r".*/superdashboard"))
     page.close()
 
 
@@ -40,13 +41,13 @@ def test_login_positive_04(page: Page):
     page.get_by_role("textbox", name="PASSWORD").fill(PASSWORD)
     page.get_by_role("textbox", name="USERNAME").fill(USERNAME)
     page.get_by_role("checkbox", name="REMEMBER ME").check()
-    page.get_by_role("button", name="LOGIN").click(button="left")
-    expect(page.get_by_role("complementary")).to_be_visible()
+    page.get_by_role("button", name="LOGIN").click()
+    expect(page).to_have_url(re.compile(r".*/superdashboard"))
     context = page.context
     page.close()
     new_page = context.new_page()
     new_page.goto("http://52.19.50.152:40001/superdashboard")
-    expect(new_page.get_by_role("complementary")).to_be_visible()
+    expect(new_page).to_have_url(re.compile(r".*/superdashboard"))
 
 @pytest.mark.xfail(Reason="Feature to be Added") # Feature not added yet
 @pytest.mark.tc(id="TC-LOGIN-POS-005", sheet="Login - Positive")
@@ -54,7 +55,7 @@ def test_login_positive_05(page: Page):
     """Corresponds to TC-LOGIN-POS-005: Verify 'Forgot password?' link"""
     page.goto("http://52.19.50.152:40001/login")
     page.get_by_role("button", name="FORGOT PASSWORD?").click()
-    expect(page.get_by_role("complementary")).to_match_aria_snapshot("- img \"Logo\"\n- text: Connector")
+    expect(page).to_have_url(re.compile(r".*/superdashboard"))
     page.close()
 
 
@@ -65,13 +66,13 @@ def test_login_positive_06(context):
     page1.goto("http://52.19.50.152:40001/login")
     page1.get_by_role("textbox", name="USERNAME").fill(USERNAME)
     page1.get_by_role("textbox", name="PASSWORD").fill(PASSWORD)
-    page1.get_by_role("button", name="LOGIN").click(button="left")
-    expect(page1.get_by_role("complementary")).to_be_visible()
+    page1.get_by_role("button", name="LOGIN").click()
+    expect(page1).to_have_url(re.compile(r".*/superdashboard"))
 
     context2 = page1.context.browser.new_context()
     page2 = context2.new_page()
     page2.goto("http://52.19.50.152:40001/login")
     page2.get_by_role("textbox", name="USERNAME").fill(USERNAME)
     page2.get_by_role("textbox", name="PASSWORD").fill(PASSWORD)
-    page2.get_by_role("button", name="LOGIN").click(button="left")
-    expect(page2.get_by_role("complementary")).to_be_visible()
+    page2.get_by_role("button", name="LOGIN").click()
+    expect(page2).to_have_url(re.compile(r".*/superdashboard"))
