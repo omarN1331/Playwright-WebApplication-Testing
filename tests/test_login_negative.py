@@ -12,6 +12,7 @@ def test_login_negative_001(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     error_popup = page.get_by_text("Login failed. Please check")
     expect(error_popup).to_be_visible()
+    page.close()
 
 
 @pytest.mark.tc(id="TC-LOGIN-NEG-002", sheet="Login - Negative")
@@ -23,7 +24,7 @@ def test_login_negative_002(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     error_popup = page.get_by_text("Login failed. Please check")
     expect(error_popup).to_be_visible()
-
+    page.close()
 
 @pytest.mark.tc(id="TC-LOGIN-NEG-003", sheet="Login - Negative")
 def test_login_negative_003(page: Page):
@@ -34,7 +35,7 @@ def test_login_negative_003(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     error_popup = page.get_by_text("Login failed. Please check")
     expect(error_popup).to_be_visible()
-
+    page.close()
 
 @pytest.mark.tc(id="TC-LOGIN-NEG-004", sheet="Login - Negative")
 def test_login_negative_004(page: Page):
@@ -45,7 +46,7 @@ def test_login_negative_004(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     error_popup = page.get_by_text("Login failed. Please check")
     expect(error_popup).to_be_visible()
-
+    page.close()
 
 @pytest.mark.tc(id="TC-LOGIN-NEG-005", sheet="Login - Negative")
 def test_login_negative_005(page: Page):
@@ -56,7 +57,7 @@ def test_login_negative_005(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     error_popup = page.get_by_text("Login failed. Please check")
     expect(error_popup).to_be_visible()
-
+    page.close()
 
 @pytest.mark.tc(id="TC-LOGIN-NEG-006", sheet="Login - Negative")
 def test_login_negative_006(page: Page):
@@ -67,3 +68,4 @@ def test_login_negative_006(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     error_popup = page.get_by_text("Login failed. Please check")
     expect(error_popup).to_be_visible()
+    page.close()

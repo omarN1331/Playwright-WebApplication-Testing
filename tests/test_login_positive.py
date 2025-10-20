@@ -13,6 +13,7 @@ def test_login_positive_01(page: Page):
     page.get_by_role("textbox", name="PASSWORD").fill(PASSWORD)
     page.get_by_role("button", name="LOGIN").click()
     expect(page).to_have_url(re.compile(r".*/superdashboard"))
+    page.close()
 
 
 @pytest.mark.tc(id="TC-LOGIN-POS-002", sheet="Login - Positive")
@@ -24,6 +25,7 @@ def test_login_positive_02(page: Page):
     page.get_by_role("checkbox", name="REMEMBER ME").check()
     page.get_by_role("button", name="LOGIN").click()
     expect(page).to_have_url(re.compile(r".*/superdashboard"))
+    page.close()
 
 @pytest.mark.xfail(reason="Feature to be Added") # Feature not added yet
 @pytest.mark.tc(id="TC-LOGIN-POS-003", sheet="Login - Positive")
@@ -48,6 +50,7 @@ def test_login_positive_04(page: Page):
     new_page = context.new_page()
     new_page.goto("http://52.19.50.152:40001/superdashboard")
     expect(new_page).to_have_url(re.compile(r".*/superdashboard"))
+    new_page.close()
 
 @pytest.mark.xfail(Reason="Feature to be Added") # Feature not added yet
 @pytest.mark.tc(id="TC-LOGIN-POS-005", sheet="Login - Positive")
