@@ -1,5 +1,14 @@
 import pytest
 from utils.excel_updater import update_excel_status
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get credentials from environment variables
+USERNAME = os.getenv("TEST_USERNAME")
+PASSWORD = os.getenv("TEST_PASSWORD")
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
