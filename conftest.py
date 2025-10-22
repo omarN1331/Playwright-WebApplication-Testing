@@ -9,6 +9,7 @@ load_dotenv()
 # Get credentials from environment variables
 USERNAME = os.getenv("TEST_USERNAME")
 PASSWORD = os.getenv("TEST_PASSWORD")
+BASE_URL = os.getenv("TEST_BASE_URL")
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
