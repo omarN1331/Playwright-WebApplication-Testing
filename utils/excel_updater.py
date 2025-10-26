@@ -72,7 +72,7 @@ def update_excel_status(
             cell.fill = header_fill
             # Made the "Actual Result" column wider for better readability
             if col_name == "Actual Result":
-                sheet.column_dimensions[cell.column_letter].width = 60
+                sheet.column_dimensions[cell.column_letter].width = 600
             else:
                 sheet.column_dimensions[cell.column_letter].width = 25
 

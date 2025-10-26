@@ -9,6 +9,7 @@ load_dotenv()
 # Get credentials from environment variables
 class EnvironmentVariables:
     USERNAME = os.getenv("TEST_USERNAME")
+    USERNAME_B = os.getenv("TEST_USERNAME_2")
     PASSWORD = os.getenv("TEST_PASSWORD")
     BASE_URL = os.getenv("TEST_BASE_URL")
     DASHBOARD_URL = os.getenv("TEST_DASHBOARD_URL")

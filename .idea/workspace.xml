@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6184133e-bda0-4118-90bc-57c55883d85a" name="Changes" comment="+Better Assertions">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test_Cases.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Cases.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_login_negative.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_login_negative.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_login_positive.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_login_positive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytestdebug.log" beforeDir="false" afterPath="$PROJECT_DIR$/pytestdebug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_login_negative.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_authentication_negative.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_login_positive.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_authentication_positive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/excel_updater.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/excel_updater.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +216,7 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_login_positive&quot;" />
+      <option name="_new_target" value="&quot;tests.test_authentication_positive&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -257,7 +258,7 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_login_positive.test_has_title" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for tests.test_authentication_positive" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="ACT-Connector-E2E" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,14 +272,14 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_login_positive.test_has_title&quot;" />
+      <option name="_new_target" value="&quot;tests.test_authentication_positive&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.non_gui_main" />
-        <item itemvalue="Python tests.pytest for test_login_positive.test_has_title" />
+        <item itemvalue="Python tests.pytest for tests.test_authentication_positive" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +298,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760862286281</updated>
-      <workItem from="1760862287713" duration="41219000" />
+      <workItem from="1760862287713" duration="51906000" />
     </task>
     <task id="LOCAL-00001" summary="-Git Commit">
       <option name="closed" value="true" />
@@ -403,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761167676802</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="+Better Assertions">
+      <option name="closed" value="true" />
+      <created>1761217464578</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1761217464578</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
