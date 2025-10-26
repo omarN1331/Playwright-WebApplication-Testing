@@ -2,9 +2,11 @@ import pytest
 from utils.excel_updater import update_excel_status
 import os
 from dotenv import load_dotenv
+import re
 
 # Load environment variables from .env file
 load_dotenv()
+
 
 # Get credentials from environment variables
 class EnvironmentVariables:
@@ -13,7 +15,9 @@ class EnvironmentVariables:
     PASSWORD = os.getenv("TEST_PASSWORD")
     BASE_URL = os.getenv("TEST_BASE_URL")
     DASHBOARD_URL = os.getenv("TEST_DASHBOARD_URL")
-#-------------------------------------------
+
+
+# -------------------------------------------
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
@@ -26,9 +30,37 @@ def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
 
-    # We store the report object on the test item. The 'rep_...' attributes
-    # are dynamically created (e.g., rep_setup, rep_call, rep_teardown).
+    # We store the report object on the test item.
     setattr(item, "rep_" + report.when, report)
+
+    # --- START OF NEW/MODIFIED BLOCK ---
+    if report.when == "call" and report.failed:
+        # Create a screenshots directory if it doesn't exist
+        os.makedirs("screenshots", exist_ok=True)
+
+        # Try to get the 'page' or 'browser' fixture to take a screenshot
+        page = None
+        if "page" in item.funcargs:
+            page = item.funcargs["page"]
+        elif "logged_in_page" in item.funcargs:
+            page = item.funcargs["logged_in_page"]
+        elif "browser" in item.funcargs:
+            browser = item.funcargs["browser"]
+            if browser.contexts and browser.contexts[0].pages:
+                page = browser.contexts[0].pages[0]
+
+        if page:
+            # Create a clean, unique file name
+            test_name = re.sub(r"[^a-zA-Z0-9_\-.]", "_", item.nodeid)
+            file_path = f"screenshots/{test_name}.png"
+
+            try:
+                page.screenshot(path=file_path)
+                # *** THIS IS THE KEY: Save the path on the report object ***
+                setattr(report, "screenshot_path", file_path)
+            except Exception as e:
+                print(f"Failed to take screenshot: {e}")
+    # --- END OF NEW/MODIFIED BLOCK ---
 
 
 @pytest.fixture(autouse=True)
@@ -59,9 +91,11 @@ def excel_logger(request):
     status = "skipped"
     error = None
     duration = 0.0
+    screenshot_path = None  # <-- MODIFIED: Initialize screenshot_path
 
     if report:
         duration = report.duration
+        screenshot_path = getattr(report, "screenshot_path", None)  # <-- MODIFIED: Get the path
         if report.passed:
             status = "passed"
         elif report.failed:
@@ -82,6 +116,6 @@ def excel_logger(request):
         sheet_name=sheet_name,
         status=status,
         duration=duration,
-        error_message=error
+        error_message=error,
+        screenshot_path=screenshot_path  # <-- MODIFIED: Pass the new argument
     )
-

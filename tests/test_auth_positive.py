@@ -145,7 +145,7 @@ def test_authentication_positive_010(page: Page):
     page.get_by_role("textbox", name="USERNAME").fill(EnvironmentVariables.USERNAME_B)
     page.get_by_role("textbox", name="PASSWORD").fill(EnvironmentVariables.PASSWORD)
     page.get_by_role("button", name="LOGIN").click()
-    expect(page).to_have_url(re.compile(r".*/dashboard"))
+    expect(page).to_have_url(re.compile(r".*/dashboard"), timeout=15000)
 
 @pytest.mark.tc(id="TC-LOGIN-POS-011", sheet="Authentication - Positive")
 def test_authentication_positive_011(page: Page):

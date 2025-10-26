@@ -3,6 +3,7 @@ from openpyxl.styles import PatternFill, Font
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, Optional
+import os
 
 
 def update_excel_status(
@@ -10,12 +11,13 @@ def update_excel_status(
         status: str,
         duration: float,
         error_message: Optional[str] = None,
+        screenshot_path: Optional[str] = None,
         file_path: str = 'Test_Cases.xlsx',
         sheet_name: Optional[str] = None
 ):
     """
     Finds a test case by its ID in an Excel sheet and updates its status.
-    This version cleans up the error message to show the specific assertion.
+    This version cleans up the error message and adds a screenshot link.
     """
     full_path = Path.cwd() / file_path
     if not full_path.exists():
@@ -35,22 +37,14 @@ def update_excel_status(
         return
 
     # --- LOGIC TO CLEAN UP THE ERROR MESSAGE ---
-    # This block determines what to write in the "Actual Result" column.
     actual_result_message = 'Test Passed Successfully'
     if status.lower() == 'failed' and error_message:
-        # Split the full traceback into individual lines
         lines = error_message.strip().split('\n')
-
-        # Find lines that start with "E   " (which indicates a pytest error line)
         error_lines = [line.strip().replace('E   ', '') for line in lines if line.strip().startswith('E   ')]
-
         if error_lines:
-            # Join the specific error lines together for a clear message
             actual_result_message = ' | '.join(error_lines)
         else:
-            # Fallback if the error format is unexpected: use the last line
             actual_result_message = lines[-1].strip()
-
     elif status.lower() == 'skipped' and error_message:
         actual_result_message = f"Skipped: {error_message}"
 
@@ -58,7 +52,8 @@ def update_excel_status(
     new_headers = {
         "Timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         "Duration (s)": f'{duration:.4f}',
-        "Actual Result": actual_result_message  # Use the cleaned-up message
+        "Actual Result": actual_result_message,
+        "Screenshot": "N/A"
     }
 
     header_font = Font(bold=True, color="FFFFFFFF")
@@ -72,7 +67,9 @@ def update_excel_status(
             cell.fill = header_fill
             # Made the "Actual Result" column wider for better readability
             if col_name == "Actual Result":
-                sheet.column_dimensions[cell.column_letter].width = 600
+                sheet.column_dimensions[cell.column_letter].width = 80
+            elif col_name == "Screenshot":
+                sheet.column_dimensions[cell.column_letter].width = 25
             else:
                 sheet.column_dimensions[cell.column_letter].width = 25
 
@@ -104,9 +101,29 @@ def update_excel_status(
     for col_name, value in new_headers.items():
         try:
             col_idx = current_header.index(col_name) + 1
-            sheet.cell(row=target_row, column=col_idx, value=value)
+            if col_name == "Screenshot":
+                # Write the default "N/A"
+                if not screenshot_path:
+                    sheet.cell(row=target_row, column=col_idx, value=value)
+            else:
+                sheet.cell(row=target_row, column=col_idx, value=value)
         except ValueError:
             continue
 
-    workbook.save(full_path)
+    if screenshot_path:
+        try:
+            # Find the "Screenshot" column
+            screenshot_col_idx = current_header.index("Screenshot") + 1
+            screenshot_cell = sheet.cell(row=target_row, column=screenshot_col_idx)
 
+            # Create a full, absolute file path and format it as a hyperlink
+            # .replace handles Windows paths
+            full_path = "file:///" + os.path.abspath(screenshot_path).replace("\\", "/")
+
+            screenshot_cell.value = "View Screenshot"
+            screenshot_cell.hyperlink = full_path
+            screenshot_cell.style = "Hyperlink"
+        except ValueError:
+            print("Warning: 'Screenshot' column not found. Could not write hyperlink.")
+
+    workbook.save(full_path)
