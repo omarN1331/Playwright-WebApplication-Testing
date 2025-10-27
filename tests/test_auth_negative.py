@@ -86,5 +86,6 @@ def test_authentication_negative_008(page: Page):
     page.get_by_role("button", name="LOGIN").click()
     page.on("dialog", lambda dialog: dialog.accept())
     page.get_by_role("button", name="Logout").click()
-    page.goto(EnvironmentVariables.DASHBOARD_URL)
     expect(page.get_by_text("Login", exact=True)).to_be_visible()
+    page.goto(EnvironmentVariables.DASHBOARD_URL)
+    expect(page).to_have_url(re.compile(r".*/login"))
